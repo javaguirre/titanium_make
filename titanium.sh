@@ -7,7 +7,6 @@
 TI_SDK_VERSION="2.0.2.GA"
 TI_DIR="$HOME/.titanium"
 IPHONE_SDK_VERSION="4.2"
-ANDROID_API_LEVEL="23" #the API level of the targeted emulator
 ANDROID_SDK_PATH="$HOME/apps/android-sdk-linux" #example path from homebrew install
 
 PROJECT_NAME=${PROJECT_NAME}
@@ -52,10 +51,10 @@ elif [ ${APP_DEVICE} == "android" ]; then
 	  	echo "[INFO] Emulator already running, going to launch with that."
 	  else
 	  	echo "[ERROR] Could not find a running emulator."
-	  	echo "[ERROR] Run this command in a separate terminal session: ${ANDROID_SDK_PATH}/tools/emulator-arm -avd android${ANDROID_API_LEVEL}"
+	  	echo "[ERROR] Run this command in a separate terminal session: ${ANDROID_SDK_PATH}/tools/emulator-arm -avd ${AVD_NAME}"
 	  	exit 1
 	fi
-	bash -c "python2 ${TI_ANDROID_BUILD} simulator ${APP_NAME} ${ANDROID_SDK_PATH} ${PROJECT_ROOT}/${PROJECT_NAME}/ ${APP_ID} ${ANDROID_API_LEVEL}"
+	bash -c "python2 ${TI_ANDROID_BUILD} simulator ${APP_NAME} ${ANDROID_SDK_PATH} ${PROJECT_ROOT}/${PROJECT_NAME}/ ${APP_ID} ${AVD_NAME}"
 else
 	echo "${APP_DEVICE} is not supported. Only iphone, ipad, and android."
 	exit 1

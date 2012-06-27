@@ -1,5 +1,6 @@
 PROJECT_NAME=example
 PROJECT_ROOT=$(shell pwd)
+AVD_NAME="android23" #The avd name
 
 run-iphone:
 	@DEVICE_TYPE=iphone make run
